@@ -1,0 +1,20 @@
+<p></p>
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                <h4 class="card-title">Login</h4>
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                    Name: <input name="username" ngModel>
+                    Password: <input name="password" ngModel>
+                    <button>Login</button>
+                </form>
+                <button (click)="buttonClick_register()" >Register</button>
+            </div>
+        </div>
+    </div>
+</div>
