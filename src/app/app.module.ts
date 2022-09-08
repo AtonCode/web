@@ -9,6 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import { EditComponent } from './edit/edit.component';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
+import { AuthGuard } from './services/auth.guard';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NabvarComponent,
     RegisterComponent,
-    EditComponent
+    EditComponent,
+    SearchComponent,
+    Page404Component
   ],
   imports: [
     FormsModule,
@@ -27,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

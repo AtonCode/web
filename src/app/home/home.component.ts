@@ -12,11 +12,14 @@ export class HomeComponent implements OnInit {
   _materiaService: MicroServicioPanteraService;
   title = 'app';
   materias: Pantera[]=[];
+  pageTitle: string;
+  
   
   constructor(_materiaService: MicroServicioPanteraService, private router: Router) { 
     this._materiaService = _materiaService;
     //_materiaService.getAll().subscribe(res => this.materias = res);
     _materiaService.protectedRequestALL().subscribe(res => this.materias = res);
+    this.pageTitle = router.url.replace("/", "").toUpperCase();
    
   }
   ngOnInit(): void {

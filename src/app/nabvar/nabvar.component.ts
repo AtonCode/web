@@ -7,9 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./nabvar.component.css']
 })
 export class NabvarComponent implements OnInit {
+  pageTitle: string;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    this.pageTitle = router.url.replace("/", "").toUpperCase();
+  }
 
   ngOnInit(): void {
   }

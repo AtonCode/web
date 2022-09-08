@@ -84,4 +84,19 @@ export class MicroServicioPanteraService {
             .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
     return this._httpClient.get<Pantera>('http://172.20.10.4:8080/pantera/" + id', {headers});
   }
+
+  validarToken(){
+    var pass: boolean = false;
+    this.protectGetALL().subscribe(response => {
+      
+      if(response.values != null){
+      pass = true;
+      } else {
+      pass = false;
+      }
+
+    });
+    
+    return pass;
+  }
 }

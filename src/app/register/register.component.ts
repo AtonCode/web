@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink, UrlHandlingStrategy } from '@angular/router';
 import { Pantera } from '../models/Pantera';
 import { MicroServicioPanteraService } from '../services/micro-servicio-pantera.service';
 
@@ -11,16 +11,18 @@ import { MicroServicioPanteraService } from '../services/micro-servicio-pantera.
 })
 export class RegisterComponent implements OnInit {
   materia: Pantera = new Pantera("4","hello", "world");
+  pageTitle: string | undefined;
 
   _materiaService: MicroServicioPanteraService | undefined;
   
   constructor(_materiaService: MicroServicioPanteraService, private router: Router) {
     
     this._materiaService = _materiaService;
+    this.pageTitle = router.url.replace("/", "").toUpperCase();
     
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   onSubmit(f: NgForm) {

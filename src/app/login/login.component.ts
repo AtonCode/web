@@ -12,14 +12,16 @@ import { MicroServicioPanteraService } from '../services/micro-servicio-pantera.
 export class LoginComponent implements OnInit {
   materia: Pantera = new Pantera("4","hello", "world");
   _materiaService: MicroServicioPanteraService | undefined;
+  pageTitle: string | undefined;
   
   constructor(_materiaService: MicroServicioPanteraService, private router: Router) {
     
     this._materiaService = _materiaService;
+    this.pageTitle = router.url.replace("/", "").toUpperCase();
     
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
   
   buttonClick_register(){
@@ -30,6 +32,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     var _materia: Pantera  = new Pantera("", f.value.username, f.value.password);
+    console.log(_materia.username);
+    console.log(_materia.password);
 
     if(this._materiaService?.login(_materia)==true){
 
